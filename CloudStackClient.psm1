@@ -87,7 +87,6 @@ function Get-CloudStack{
     $SECRET_KEY = $cloudStack[2]
     Write-Debug ("SECRET_KEY: $SECRET_KEY")
     Write-Debug ("Options: $options")
-    #$optionString="apikey="+($API_KEY)+"&"+"command="+$command
     $optionString="apikey="+($API_KEY)
     $options += "command="+$command
     $options += "response=xml"
