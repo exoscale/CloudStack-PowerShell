@@ -18,6 +18,7 @@
 # 2013/6/20  v2.1 created to add Powershell 2 support
 # 2013/9/03  v2.5 created to add better error handling
 # 2016/8/28  v2.6 Small refactor to fix signature mismatch in some cases. Powershell V3+ only supported (loic.lambiel@exoscale.ch)
+# 2018/3/28  v2.7 Switch from XML to JSON output. (yoan.blanc@exoscale.ch)
 
 [VOID][System.Reflection.Assembly]::Load("System.Web, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a");
 $WebClient = New-Object net.WebClient
@@ -89,7 +90,7 @@ function Get-CloudStack{
     Write-Debug ("Options: $options")
     $optionString="apikey="+($API_KEY)
     $options += "command="+$command
-    $options += "response=xml"
+    $options += "response=json"
     $options = $options | Sort-Object
     Write-Debug ("Options sorted: $options")
     foreach($o in $options){
